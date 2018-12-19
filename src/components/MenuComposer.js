@@ -3,9 +3,6 @@ import Item from './Item';
 import Heading from './Heading';
 import Modal from './Modal';
 
-var placeholder = document.createElement("li");
-placeholder.className = "placeholder";
-
 class MenuComposer extends Component {
     constructor(props) {
         super(props);
