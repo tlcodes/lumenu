@@ -25,15 +25,21 @@ class MenuComposer extends Component {
 
     addItem() {
         let id = Math.random();
-        let items = [...this.state.items, {title: '', input:'', valid: true, open: false, id: id, conditions:[{"contains_number": true, checked: false}, {"2_chars_min": true, checked: false}, {"not_empty": true, checked: false}]}];
-        this.setState({ items });
+        let newItems = [...this.state.items, {title: '', input:'', valid: true, open: false, id: id, conditions:[{"contains_number": true, checked: false}, {"2_chars_min": true, checked: false}, {"not_empty": true, checked: false}]}];
+        this.setState({ 
+            history: [...this.state.history, this.state.items],
+            items: newItems 
+        })
     }
 
     removeItem(id) {
         const newItems = this.state.items.filter(item => {
             return item.id !== id;
         });
-        this.setState({ items: newItems })
+        this.setState({ 
+            history: [...this.state.history, this.state.items],
+            items: newItems 
+        })
     }
 
     updateItem(id, updatedProps) {
